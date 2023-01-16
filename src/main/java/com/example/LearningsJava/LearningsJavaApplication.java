@@ -24,6 +24,9 @@ public class LearningsJavaApplication {
 //        System.out.println("Inside cron run:" + new Date());
 //    }
 
+
+
+
 	/**
 	 *  scheduled time every 30 sec it will run
 	 */
