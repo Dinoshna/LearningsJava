@@ -7,6 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableScheduling
@@ -24,16 +25,13 @@ public class LearningsJavaApplication {
 //        System.out.println("Inside cron run:" + new Date());
 //    }
 
-
-
-
 	/**
 	 *  scheduled time every 30 sec it will run
 	 */
 	@Scheduled(fixedDelay = 30000)
-	@SchedulerLock(name="scheduletest")
+//	@SchedulerLock(name="scheduletest", lockAtLeastFor = 31000, lockAtMostFor = 35000 )
 	public void cronRun() throws Exception{
-
+		TimeUnit.SECONDS.sleep(30);
 		System.out.println("Inside cron run:" + new Date());
 	}
 }
