@@ -17,21 +17,22 @@ public class LearningsJavaApplication {
         SpringApplication.run(LearningsJavaApplication.class, args);
     }
 
-//	/**
-//	 *  scheduled time every 6 sec it will run
-//	 */
-//	@Scheduled(fixedDelay = 6000)
-//    public void cronRun() {
-//        System.out.println("Inside cron run:" + new Date());
-//    }
+	/**
+	 *  scheduled time every 6 sec it will run
+	 */
+	@Scheduled(fixedDelay = 6000)
+    public void cronRun1() {
+        System.out.println("Inside cron run:" + new Date());
+    }
 
 	/**
-	 *  scheduled time every 30 sec it will run
+	 *  scheduled time with shedlock for 30 sec
 	 */
 	@Scheduled(fixedDelay = 30000)
-//	@SchedulerLock(name="scheduletest", lockAtLeastFor = 31000, lockAtMostFor = 35000 )
+	@SchedulerLock(name="scheduletest", lockAtLeastFor = 31000, lockAtMostFor = 35000 )
 	public void cronRun() throws Exception{
 		TimeUnit.SECONDS.sleep(30);
 		System.out.println("Inside cron run:" + new Date());
 	}
 }
+
